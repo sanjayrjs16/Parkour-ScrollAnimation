@@ -23,7 +23,15 @@ function App() {
     img.src = `./src/assets/0001.jpg`;
 
     img.onload = () => {
-      contextRef.current.drawImage(img, 0, 0);
+      canvasRef.current.width = img.naturalWidth;
+      canvasRef.current.height = img.naturalHeight;
+      contextRef.current.drawImage(
+        img,
+        0,
+        0,
+        canvasRef.current.width,
+        canvasRef.current.height
+      );
     };
 
     const changeImage = (index) => {
